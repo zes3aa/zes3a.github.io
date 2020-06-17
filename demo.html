@@ -11,10 +11,10 @@
         <input type="email" id="email" placeholder="me@example.com">
         <input type="text" id="username" placeholder="username">
         <input type="password" id="password" placeholder="password">
-        <button class="g-recaptcha" data-sitekey="6Lc1rKUZAAAAACC7HDZClt_rDN1csZDjCqDWBnHn" data-callback='onSubmit' data-action='submit'>Submit</button>
+        <button class="g-recaptcha" data-sitekey="6Lc1rKUZAAAAACC7HDZClt_rDN1csZDjCqDWBnHn" data-callback='mcdonalds' data-action='submit'>Submit</button>
     </form>
     <script>
-        window.onSubmit = function(token) {
+        window.mcdonalds = async function(token) {
             let response = await fetch("https://vex-api.herokuapp.com/register", {
                 method: "POST",
                 headers: {
