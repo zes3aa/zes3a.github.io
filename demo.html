@@ -11,24 +11,21 @@
         <input type="email" id="email" placeholder="me@example.com">
         <input type="text" id="username" placeholder="username">
         <input type="password" id="password" placeholder="password">
-        <button class="g-recaptcha" data-sitekey="6Lc1rKUZAAAAACC7HDZClt_rDN1csZDjCqDWBnHn" data-callback='mcdonalds' data-action='submit'>Submit</button>
+        <button class="g-recaptcha" data-sitekey="6Lc1rKUZAAAAACC7HDZClt_rDN1csZDjCqDWBnHn" data-callback='mcdonalds'
+            data-action='submit'>Submit</button>
     </form>
     <script>
-        window.mcdonalds = async function(token) {
-            let response = await fetch("https://vex-api.herokuapp.com/register", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json;charset=utf-8'
-                },
-                body: JSON.stringify({
-                    username: document.querySelector("#username").value,
-                    email: document.querySelector("#email").value,
-                    password: document.querySelector("#password").value,
-                    recaptchaToken: token
-                })
-            });
-            let result = await response.json();
-            console.log(result);
+        window.mcdonalds = async function (token) {
+            var req = new XMLHttpRequest();
+            req.open("POST", "https://vex-api.herokuapp.com/register", false);
+            req.setRequestHeader("Content-Type", "application/json");
+            req.send(JSON.stringify({
+                username: document.querySelector("#username").value,
+                email: document.querySelector("#email").value,
+                password: document.querySelector("#password").value,
+                recaptchaToken: token
+            }));
+            console.log(req.responseText);
         }
     </script>
 </body>
