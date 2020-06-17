@@ -14,7 +14,7 @@
         <button class="g-recaptcha" data-sitekey="6Lc1rKUZAAAAACC7HDZClt_rDN1csZDjCqDWBnHn" data-callback='onSubmit' data-action='submit'>Submit</button>
     </form>
     <script>
-        function onSubmit(token) {
+        window.onSubmit = function(token) {
             let response = await fetch("https://vex-api.herokuapp.com/register", {
                 method: "POST",
                 headers: {
