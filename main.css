@@ -22,4 +22,5 @@ button {
   display: center;
   font-size: 16px;
   justify-content: center;
+  margin: 0 auto;
 }
