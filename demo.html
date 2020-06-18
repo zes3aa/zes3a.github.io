@@ -11,8 +11,9 @@
         <input type="email" id="email" placeholder="me@example.com">
         <input type="text" id="username" placeholder="username">
         <input type="password" id="password" placeholder="password">
-        <button class="g-recaptcha" data-sitekey="6Lc1rKUZAAAAACC7HDZClt_rDN1csZDjCqDWBnHn" data-callback='mcdonalds'
-            data-action='submit'>Submit</button>
+        <div class="g-recaptcha" data-callback="mcdonalds" data-sitekey="your_site_key"></div>
+        <br>
+        <button>Register</button>
     </form>
     <script>
         window.mcdonalds = async function (token) {
