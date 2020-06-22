@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Vex Email Verification</title>
+  </head>
+  <body>
+    <script>
+      var xhr = new XMLHttpRequest();
+      xhr.open("GET", "https://vex-api.herokuapp.com/_register?a=" + location.href.slice(location.href.indexOf("?") + "?a=".length));
+      xhr.onload = function() {
+        if(this.readyState != 200)
+          return;
+        location.href = "/login.html";
+      };
+      xhr.onerror = function() {
+        document.write(`<body style="background:red;color:white"><p>Error.</p></body>`);
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
