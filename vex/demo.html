@@ -7,17 +7,21 @@
 
 <body>
     <script src="https://www.google.com/recaptcha/api.js"></script>
-    <form>
+    <form onsubmit="return submitRegistration()">
         <input type="email" id="email" placeholder="me@example.com">
         <input type="text" id="username" placeholder="username">
         <input type="password" id="password" placeholder="password">
-        <div class="g-recaptcha" data-callback="mcdonalds" data-sitekey="6LcFhaYZAAAAABgB8hwJjUFVJRhcSQ4PNJAkXmh_"></div>
+        <div class="g-recaptcha" data-callback="settoken" data-sitekey="6LcFhaYZAAAAABgB8hwJjUFVJRhcSQ4PNJAkXmh_"></div>
         <br>
         <button>Register</button>
     </form>
     <script>
-        window.mcdonalds = async function (token) {
-            var req = new XMLHttpRequest();
+        var token;
+        window.settoken = async function (_token) {
+            token = _token;
+        };
+        window.submitRegistration = function() {
+         var req = new XMLHttpRequest();
             req.open("POST", "https://vex-api.herokuapp.com/register", true);
             req.setRequestHeader("Content-Type", "application/json");
             req.onload = function() {
@@ -30,7 +34,7 @@
                 email: document.querySelector("#email").value,
                 password: document.querySelector("#password").value,
                 recaptcha: token
-            }));
+            }));   
         }
     </script>
 </body>
