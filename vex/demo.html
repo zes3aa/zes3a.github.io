@@ -16,7 +16,7 @@
         <button>Register</button>
     </form>
     <script>
-        var token;
+        window.token = null;
         window.settoken = async function (_token) {
             token = _token;
         };
@@ -33,9 +33,10 @@
                 username: document.querySelector("#username").value,
                 email: document.querySelector("#email").value,
                 password: document.querySelector("#password").value,
-                recaptcha: token
+                recaptcha: window.token
             }));   
-        }
+						return false;
+        };
     </script>
 </body>
 
