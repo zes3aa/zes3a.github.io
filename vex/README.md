@@ -1,2 +1,2 @@
 # zes3a.github.io
-epic vex site yes
+my site. fuck peppy
